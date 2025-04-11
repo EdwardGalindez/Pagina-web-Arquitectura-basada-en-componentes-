@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura Basada en Componentes</title>
+    <style>
+        :root {
+            --primary-color: #68412f;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #503f2c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+        }
+        
+        .intro {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            margin-top: 0;
+        }
+        
+        .diagram {
+            text-align: center;
+            margin: 2rem 0;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .advantages, .disadvantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 200px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            
+            .advantages, .disadvantages {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Arquitectura Basada en Componentes</h1>
+            <p>Un enfoque modular para el desarrollo de software</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="intro">
+            <h2>¿Qué es la Arquitectura Basada en Componentes?</h2>
+            <p>La Arquitectura Basada en Componentes (ABC) es un paradigma de desarrollo de software que se centra en la construcción de sistemas a partir de componentes reutilizables e independientes. Cada componente encapsula una funcionalidad específica y se comunica con otros componentes a través de interfaces bien definidas.</p>
+            <p>Este enfoque promueve la reutilización de código, facilita el mantenimiento y permite que los equipos de desarrollo trabajen en paralelo en diferentes componentes del sistema.</p>
+        </section>
+        
+        <section class="diagram">
+            <h2>Diagrama Conceptual</h2>
+            <img src="images.jpg" alt="Diagrama de arquitectura basada en componentes">
+            <p>Representación visual de cómo los componentes interactúan en un sistema basado en componentes.</p>
+        </section>
+        
+        <section>
+            <h2>Características Principales</h2>
+            
+            <div class="feature-card">
+                <h3>Modularidad</h3>
+                <p>El sistema se divide en módulos independientes (componentes) que pueden ser desarrollados, probados y desplegados por separado.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Reutilización</h3>
+                <p>Los componentes están diseñados para ser reutilizados en diferentes partes del sistema o incluso en proyectos distintos.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Encapsulamiento</h3>
+                <p>Cada componente oculta su implementación interna y solo expone una interfaz bien definida para interactuar con otros componentes.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Interfaces definidas</h3>
+                <p>La comunicación entre componentes se realiza exclusivamente a través de interfaces, lo que reduce el acoplamiento entre ellos.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Ventajas</h2>
+            <div class="advantages">
+                <div class="feature-card">
+                    <h3>Mayor productividad</h3>
+                    <p>Permite reutilizar componentes existentes en lugar de desarrollar funcionalidades desde cero.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Mantenimiento más fácil</h3>
+                    <p>Los cambios en un componente no afectan necesariamente a otros componentes del sistema.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Escalabilidad</h3>
+                    <p>Nuevas funcionalidades pueden añadirse mediante la creación o integración de nuevos componentes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Desarrollo paralelo</h3>
+                    <p>Diferentes equipos pueden trabajar en distintos componentes simultáneamente.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Desventajas</h2>
+            <div class="disadvantages">
+                <div class="feature-card">
+                    <h3>Diseño inicial complejo</h3>
+                    <p>Definir correctamente los componentes y sus interfaces requiere un buen diseño inicial.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Sobrecarga de comunicación</h3>
+                    <p>La interacción entre componentes puede introducir latencia en el sistema.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Gestión de dependencias</h3>
+                    <p>El sistema debe manejar adecuadamente las versiones y dependencias entre componentes.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Tecnologías Relacionadas</h2>
+            <p>Estas son algunas de las tecnologías y frameworks que implementan o facilitan la arquitectura basada en componentes:</p>
+            
+            <div class="tech-examples">
+                <div class="tech-card">
+                    <h3>React</h3>
+                    <p>Biblioteca JavaScript para construir interfaces de usuario basadas en componentes.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>Vue.js</h3>
+                    <p>Framework progresivo para construir UIs mediante componentes reutilizables.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>Angular</h3>
+                    <p>Framework que utiliza componentes como unidad básica de construcción.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>OSGi</h3>
+                    <p>Marco de trabajo para Java que implementa un modelo de componentes dinámicos.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>.NET Core</h3>
+                    <p>Permite la creación de aplicaciones modulares mediante componentes.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Casos de Uso</h2>
+            <div class="feature-card">
+                <h3>Aplicaciones Empresariales</h3>
+                <p>Los sistemas ERP y CRM suelen utilizar arquitectura basada en componentes para gestionar módulos independientes como facturación, inventario, etc.</p>
+            </div>
+            
+            <div class="
